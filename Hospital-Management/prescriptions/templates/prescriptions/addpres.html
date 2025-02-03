@@ -1,0 +1,71 @@
+{% extends 'home/base.html' %}
+
+{% block content %}
+<!-- <center>
+<div class="profile">
+<form method="POST">
+{% csrf_token %}
+<table>
+<tr><th>Patient:</th><th>
+    <select name='pat'>
+        {% for p in p %}
+        <option value="{{p}}">{{p}}</option>
+        {% endfor %}
+    </select>
+</th></tr>
+<tr><th>Prescription:</th><th><input type="text" name='pres'></th></tr>
+<tr><th>Disease:</th><th><input type="text" name='dis'></th></tr>
+</table>
+<input type="submit" value="Update">
+</form>
+    
+</div>
+</center> -->
+
+<div class="flex justify-center h-screen mt-16">
+    <form method="POST">
+    {% csrf_token %}
+
+        <div class="mb-4">
+          <label class="block text-gray-700 font-medium mb-2" for="patient">
+            Patient
+          </label>
+          <select 
+            class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" 
+            id="pat"
+            name="pat"
+          >
+          {% for p in p %}
+          <option value="{{p}}">{{p}}</option>
+          {% endfor %}
+          </select>
+        </div>
+        <div class="mb-4">
+          <label class="block text-gray-700 font-medium mb-2" for="prescription">
+            Prescription
+          </label>
+          <input 
+            class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" 
+            id="pres" 
+            type="text" 
+            name='pres'
+          >
+        </div>
+    
+        <div class="mb-4">
+          <label class="block text-gray-700 font-medium mb-2" for="Disease">
+            Disease
+          </label>
+          <input 
+            class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" 
+            id="address" 
+            type="text"
+            name="dis"
+          />
+        </div>
+        <div class="text-center">
+        <input type="submit" value="Update" class="bg-purple-500 text-white py-2 px-4 rounded-lg hover:bg-purple-600">
+          </div>
+          </form>
+        </div>
+{% endblock %}
